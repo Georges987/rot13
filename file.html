@@ -1,0 +1,315 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.scss">
+    <title>ROT 13</title>
+</head>
+
+<body>
+    <header class="head">
+        <h1>Welcome Rot 13 User</h1>
+    </header>
+    <div class="content">
+        <div class="container">
+            <div class="hub">
+                <span class="starting">>></span><textarea name="text" type="textarea" id="case" onfocus="checking();"
+                    placeholder="Enter text or number for task"></textarea>
+                <div class="but">
+                    <div onkeypress="thread(1);" onclick="thread(1);" name="validation" id="button">
+                        Crypter / décrypter
+                    </div>
+                    <div onkeypress="thread(2);" onclick="thread(2);" name="validation" id="button">
+                        En binaire
+                    </div>
+                    <div onkeypress="thread(3);" onclick="thread(3);" name="validation" id="button">
+                        En décimal
+                    </div>
+                </div>
+            </div>
+            <div class="result">
+                <div class="process">
+                    <span id="rotate1">
+
+                    </span>
+                    <span id="treat1">
+
+                    </span>
+                    <br>
+                    <span id="rotate2">
+
+                    </span>
+                    <span id="treat2">
+
+                    </span>
+                    <br>
+                    <span id="rotate3">
+
+                    </span>
+                    <span id="treat3">
+
+                    </span>
+                    <br>
+                    <span id="rotate4">
+
+                    </span>
+                    <span id="treat4">
+
+                    </span>
+                    <br>
+                    <span id="rotate5">
+
+                    </span>
+                    <span id="treat5">
+
+                    </span>
+                    <br>
+                    <span id="rotate6">
+
+                    </span>
+                    <span id="treat6">
+
+                    </span>
+                    <br>
+                    <span id="rotate7">
+
+                    </span>
+                    <span id="treat7">
+
+                    </span>
+                </div>
+                <div class="ans-box">
+                    <h1>
+                        Answers
+                    </h1>
+                    <span id="tar">
+
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<style>
+    header {
+        border-bottom: 5px solid limegreen;
+    }
+
+    body {
+        margin: 0px;
+        padding: 0px;
+        background-color: black;
+        color: limegreen;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: large;
+    }
+
+    .head {
+        text-align: center;
+        padding-top: 1%;
+    }
+
+    .content {
+        position: absolute;
+        width: 100%;
+        height: 600px;
+    }
+
+    .container {
+        border-radius: 30px;
+        position: relative;
+        margin: auto;
+        padding: 40px;
+    }
+
+    .ans-box {
+        height: 200px;
+        width: 300px;
+        border: 3px red unset;
+    }
+
+    #tar {
+        position: relative;
+    }
+
+    .starting {
+        vertical-align: top;
+    }
+
+    textarea {
+        background: transparent;
+        color: limegreen;
+        border: none;
+        box-sizing: border-box;
+        width: 95%;
+        height: 100px;
+        padding-top: 5px;
+    }
+
+    .but {
+        display: flex;
+        position: inherit;
+        right: 0;
+        padding: 15px;
+        justify-content: space-between;
+    }
+
+    #button {
+        display: block;
+        padding: 15px;
+        border: 1px solid red;
+        box-sizing: border-box;
+        width: max-content;
+        font-size: small;
+        border-radius: 2em;
+        cursor: pointer;
+    }
+
+    .result {
+        position: absolute;
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .process {
+        width: 50%;
+        height: 200px;
+        padding: 6px;
+        margin: 10px;
+        border: 1px solid limegreen;
+        border-radius: 10px;
+    }
+
+    .ans-box {
+        width: 40%;
+        margin-left: 10%;
+    }
+</style>
+
+<script>
+    function checking() {
+        document.getElementById("tar").innerHTML = "";
+        document.getElementById("treat1").innerHTML = "";
+    }
+
+    function thread(swi) {
+        rotate();
+        switch (swi) {
+            case 1:
+                {
+                    myfonc();
+                    break;
+                }
+            case 2:
+                {
+                    bin();
+                    break;
+                }
+            case 3:
+                {
+                    dec();
+                    break;
+                }
+            default:
+                break;
+        }
+    }
+
+    function dec() {
+        var input = document.getElementById("case").value;
+        if (isNaN(input)) {
+            document.getElementById("rotate7").innerHTML = '❌';
+            document.getElementById("treat7").innerHTML = "Veuillez entrer un nombre";
+        }
+        else {
+            document.getElementById("tar").innerHTML = parseInt(input, 2);
+            document.getElementById("rotate7").innerHTML = '✅';
+            document.getElementById("treat7").innerHTML = "Succesfully finished 100%";
+        }
+    }
+
+    function bin() {
+        var input = document.getElementById("case").value;
+        if (isNaN(input)) {
+            document.getElementById("rotate7").innerHTML = '❌';
+            document.getElementById("treat7").innerHTML = "Veuillez entrer un nombre";
+        }
+        else {
+            //var ans = input.toString(2)
+            document.getElementById("tar").innerHTML = toBin(input);
+            document.getElementById("rotate7").innerHTML = '✅';
+            document.getElementById("treat7").innerHTML = "Succesfully finished 100%";
+        }
+    }
+
+    function toBin(sent) {
+        if (sent > 0) {
+            return toBin(parseInt(sent / 2)) + (sent % 2)
+        }
+        else {
+            return "Internal Error"
+        }
+    }
+
+    function rotate() {
+        var myarray = ['Initialisation', 'Décompression des fichiers sources', 'Initialisation de l\'algotithme de cryptage', 'Choix des variables de test', 'Débug en cours', 'Suppression des fichiers'];
+        setTimeout(() => {
+            document.getElementById("treat1").innerHTML = myarray[0];
+            document.getElementById("treat2").innerHTML = myarray[1];
+            document.getElementById("treat3").innerHTML = myarray[2];
+            document.getElementById("treat4").innerHTML = myarray[3];
+            document.getElementById("treat5").innerHTML = myarray[4];
+            document.getElementById("treat6").innerHTML = myarray[5];
+        }, 2000);
+    }
+
+    function wait(inter) {
+        var start = new new Date().getTime();
+        console.log("Finished with " + inter)
+    }
+
+    function myfonc() {
+        var input = document.getElementById("case").value;
+        if (input == "" || input == " ") {
+            document.getElementById("rotate7").innerHTML = '❌';
+            setTimeout(() => {
+                document.getElementById("treat7").innerHTML = "Veuillez entrer du texte convertible";w
+            }, 3000);
+        }
+        else {
+            document.getElementById("tar").innerHTML = rot(input);
+            document.getElementById("rotate7").innerHTML = '✅';
+            setTimeout(() => {
+                document.getElementById("treat7").innerHTML = "Succesfully finished 100%";
+            }, 3000);
+        }
+    }
+
+    function rot(sent) {
+        var indexA;
+
+        result = "";
+
+        for (i = 0; i < sent.length; i++) {
+            if (sent[i].toLowerCase() >= 'a' && sent[i].toLowerCase() <= 'm') {
+                indexA = sent.charCodeAt(i) + 13;
+                result += String.fromCharCode(indexA);
+            }
+            else if (sent[i].toLowerCase() >= 'n' && sent[i].toLowerCase() <= 'z') {
+                indexA = sent.charCodeAt(i) - 13;
+                result += String.fromCharCode(indexA);
+            }
+            else {
+                result += sent[i];
+            }
+        }
+        return result;
+    }
+</script>

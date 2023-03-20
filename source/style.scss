@@ -1,0 +1,95 @@
+header{
+    border-bottom: 5px solid limegreen;
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: black;
+    color: limegreen;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: large; 
+}
+
+.head{
+    text-align: center;
+    padding-top: 1%;
+}
+
+.content{
+    position: absolute;
+    width: 100%;
+    height: 600px;
+}
+
+.container{
+    border-radius: 30px;
+    position: relative;
+    margin: auto;
+    padding: 40px; 
+}
+
+.ans-box{
+    height: 200px;
+    width: 300px;
+    border: 3px red unset;
+}
+
+#tar{
+    position: relative;
+}
+
+.starting{
+    vertical-align: top;
+}
+
+textarea{
+    background: transparent;
+    color: limegreen;
+    border: none;
+    box-sizing: border-box;
+    width: 95%;
+    height: 100px;
+    padding-top: 5px;
+}
+
+.but{
+    display: flex;
+    position: inherit;
+    right: 0;
+    padding: 15px;
+    justify-content: space-between;
+}
+
+#button{
+    display: block;
+    padding: 15px;
+    border: 1px solid red;
+    box-sizing: border-box;
+    width: max-content;
+    font-size: small;
+    border-radius: 2em;
+    cursor: pointer;
+}
+
+.result{
+    position: absolute;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.process{
+    width: 50%;
+    height: 200px;
+    padding: 6px;
+    margin: 10px;
+    border: 1px solid limegreen;
+    border-radius: 10px;
+}
+
+.ans-box{
+    width: 40%;
+    margin-left: 10%;
+}

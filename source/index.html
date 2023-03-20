@@ -1,0 +1,99 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.scss">
+    <title>ROT 13</title>
+</head>
+
+<body>
+    <header class="head">
+        <h1>Welcome Rot 13 User</h1>
+    </header>
+    <div class="content">
+        <div class="container">
+            <div class="hub">
+                <span class="starting">>></span><textarea name="text" type="textarea" id="case" onfocus="checking();"
+                    placeholder="Enter text or number for task"></textarea>
+                <div class="but">
+                    <div onkeypress="thread(1);" onclick="thread(1);" name="validation" id="button">
+                        Crypter / décrypter
+                    </div>
+                    <div onkeypress="thread(2);" onclick="thread(2);" name="validation" id="button">
+                        En binaire
+                    </div>
+                    <div onkeypress="thread(3);" onclick="thread(3);" name="validation" id="button">
+                        En décimal
+                    </div>
+                </div>
+            </div>
+            <div class="result">
+                <div class="process">
+                    <span id="rotate1">
+
+                    </span>
+                    <span id="treat1">
+
+                    </span>
+                    <br>
+                    <span id="rotate2">
+
+                    </span>
+                    <span id="treat2">
+
+                    </span>
+                    <br>
+                    <span id="rotate3">
+
+                    </span>
+                    <span id="treat3">
+
+                    </span>
+                    <br>
+                    <span id="rotate4">
+
+                    </span>
+                    <span id="treat4">
+
+                    </span>
+                    <br>
+                    <span id="rotate5">
+
+                    </span>
+                    <span id="treat5">
+
+                    </span>
+                    <br>
+                    <span id="rotate6">
+
+                    </span>
+                    <span id="treat6">
+
+                    </span>
+                    <br>
+                    <span id="rotate7">
+
+                    </span>
+                    <span id="treat7">
+
+                    </span>
+                </div>
+                <div class="ans-box">
+                    <h1>
+                        Answers
+                    </h1>
+                    <span id="tar">
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="index.js">
+</script>
